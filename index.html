@@ -73,11 +73,11 @@ img{display:block}
         <h1 class="heading">Я умный голосовой ввод</h1>
         <p class="copy" aria-hidden="true">
           <span class="first-line"><span class="verb" id="verb">Говорите</span><span class="phrase" id="phrase"><span class="phrase-words" id="phraseWords"> как обычно</span></span><span>,</span></span>
-          <span class="second-line"><span>а я расставлю запятые</span><span class="emoji" id="emoji"> 😉</span></span>
+          <span class="second-line"><span>я расставлю запятые</span><span class="emoji" id="emoji"> 😉</span></span>
         </p>
         <div class="bubble-anchor" aria-hidden="true"><div class="bubble" id="bubble"></div></div>
         <div class="android-nav" aria-hidden="true"><span class="nav-square"></span><span class="nav-circle"></span><span class="nav-back"><img src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjExLjk4NjkiIGhlaWdodD0iMTUuMDA5MiIgdmlld0JveD0iMCAwIDExLjk4NjkgMTUuMDA5MiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggaWQ9IlZlY3RvciAyNCIgZD0iTTExLjk4NjkgMTQuNDA4M1YwLjYwMDk3OEMxMS45ODY5IDAuMTI2ODI2IDExLjQ2MjkgLTAuMTU5OTc4IDExLjA2MzUgMC4wOTU2MTUxTDAuMjc2NTY4IDYuOTk5MjZDLTAuMDkyMTg5MyA3LjIzNTI2IC0wLjA5MjE4OTIgNy43NzM5OCAwLjI3NjU2OCA4LjAwOTk4TDExLjA2MzUgMTQuOTEzNkMxMS40NjI5IDE1LjE2OTIgMTEuOTg2OSAxNC44ODI0IDExLjk4NjkgMTQuNDA4M1oiIGZpbGw9IiM3QTdBN0EiLz4KPC9zdmc+Cg==" width="11.9869" height="15.0092" alt=""></span></div>
-        <p class="sr-only" id="announcement" aria-live="polite" aria-atomic="true">Говорите как обычно, а я расставлю запятые.</p>
+        <p class="sr-only" id="announcement" aria-live="polite" aria-atomic="true">Говорите как обычно, я расставлю запятые.</p>
       </section>
     </div>
   </div>
@@ -133,17 +133,17 @@ img{display:block}
     [TIMING.replacePrompt, () => {
       panel.classList.add('commands');
       showPrompt('Замени «говорите» на «диктуйте»', 'replace-prompt', () => {
-        verb.textContent = 'Диктуйте'; verb.classList.add('added'); panel.dataset.phase = 'replaced'; announcement.textContent = 'Диктуйте как обычно, а я расставлю запятые.';
+        verb.textContent = 'Диктуйте'; verb.classList.add('added'); panel.dataset.phase = 'replaced'; announcement.textContent = 'Диктуйте как обычно, я расставлю запятые.';
       });
     }],
     [TIMING.hideReplace, hidePrompt],
     [TIMING.removePrompt, () => showPrompt('Убери «как обычно»', 'remove-prompt', () => {
       phrase.classList.add('struck'); panel.dataset.phase = 'struck';
     })],
-    [TIMING.removePhrase, () => { measurePhrase(); void phrase.offsetWidth; phrase.classList.add('removed'); panel.dataset.phase = 'removed'; announcement.textContent = 'Диктуйте, а я расставлю запятые.'; }],
+    [TIMING.removePhrase, () => { measurePhrase(); void phrase.offsetWidth; phrase.classList.add('removed'); panel.dataset.phase = 'removed'; announcement.textContent = 'Диктуйте, я расставлю запятые.'; }],
     [TIMING.hideRemove, hidePrompt],
     [TIMING.emojiPrompt, () => showPrompt('Добавь эмодзи', 'emoji-prompt', () => {
-      emoji.classList.add('visible'); panel.dataset.phase = 'emoji-added'; announcement.textContent = 'Диктуйте, а я расставлю запятые. Подмигивающий смайлик.';
+      emoji.classList.add('visible'); panel.dataset.phase = 'emoji-added'; announcement.textContent = 'Диктуйте, я расставлю запятые. Подмигивающий смайлик.';
     })],
     [TIMING.hideEmoji, hidePrompt],
     [TIMING.settle, () => { panel.classList.remove('commands'); bubble.textContent = ''; panel.dataset.phase = 'settling'; }],
@@ -172,7 +172,7 @@ img{display:block}
     emoji.classList.remove('visible');
     bubble.classList.remove('visible');
     bubble.textContent = '';
-    announcement.textContent = 'Говорите как обычно, а я расставлю запятые.';
+    announcement.textContent = 'Говорите как обычно, я расставлю запятые.';
     void panel.offsetHeight;
     panel.classList.remove('resetting');
     elapsed = 0; eventIndex = 0; startTime = null; playing = true;
