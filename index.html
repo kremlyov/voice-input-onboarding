@@ -44,7 +44,7 @@ img{display:block}
 .emoji{display:inline-block;flex:none;overflow:hidden;width:0;opacity:0;transform:scale(.82);transform-origin:center;white-space:pre;transition:width 720ms cubic-bezier(.22,1,.36,1),opacity 520ms ease,transform 720ms cubic-bezier(.22,1,.36,1)}
 .emoji.visible{width:var(--emoji-width,26px);opacity:1;transform:scale(1)}
 .bubble-anchor{position:absolute;top:157px;left:0;width:375px;display:flex;justify-content:center;pointer-events:none}
-.bubble{height:40px;padding:0 16px;display:flex;align-items:center;justify-content:center;border-radius:20px 20px 20px 6px;background:rgba(178,185,195,.3);font-size:16px;line-height:20px;white-space:nowrap;opacity:0;transform:translateY(var(--swap-distance));transition:opacity 440ms var(--swap-ease),transform 440ms var(--swap-ease)}
+.bubble{height:40px;padding:0 16px;display:flex;align-items:center;justify-content:center;border-radius:20px 20px 20px 6px;background:rgba(178,185,195,.2);font-size:16px;line-height:20px;white-space:nowrap;opacity:0;transform:translateY(var(--swap-distance));transition:opacity 440ms var(--swap-ease),transform 440ms var(--swap-ease)}
 .bubble.visible{opacity:1;transform:translateY(0);transition-duration:var(--swap-duration)}
 /* Final exit follows the copy down by 30px, with matching duration and easing. */
 .panel.editing:not(.commands) .bubble{transform:translateY(calc(var(--swap-distance) - 21px));transition-duration:var(--swap-duration)}
