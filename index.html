@@ -46,6 +46,8 @@ img{display:block}
 .bubble-anchor{position:absolute;top:158px;left:0;width:375px;display:flex;justify-content:center;pointer-events:none}
 .bubble{height:40px;padding:0 16px;display:flex;align-items:center;justify-content:center;border-radius:20px 20px 20px 6px;background:rgba(178,185,195,.3);font-size:16px;line-height:20px;white-space:nowrap;opacity:0;transform:translateY(var(--swap-distance));transition:opacity 440ms var(--swap-ease),transform 440ms var(--swap-ease)}
 .bubble.visible{opacity:1;transform:translateY(0);transition-duration:var(--swap-duration)}
+/* Final exit follows the copy down by 31px, with matching duration and easing. */
+.panel.editing:not(.commands) .bubble{transform:translateY(calc(var(--swap-distance) - 21px));transition-duration:var(--swap-duration)}
 .android-nav{position:absolute;top:242px;left:0;width:375px;height:44px;display:flex;align-items:center;justify-content:center;gap:63px;color:#7a7a7a}
 .nav-square{width:12px;height:12px;border-radius:2px;background:currentColor}
 .nav-circle{width:18px;height:18px;border:2px solid currentColor;border-radius:50%;position:relative}
@@ -99,8 +101,7 @@ img{display:block}
     removePhrase: 11400,
     hideRemove: 13900,
     emojiPrompt: 14400,
-    hideEmoji: 19600,
-    settle: 20200,
+    settle: 19600,
     finish: 21200
   });
   const panel = document.getElementById('panel');
@@ -171,9 +172,8 @@ img{display:block}
     [TIMING.emojiPrompt, () => showPrompt('Добавь эмодзи', 'emoji-prompt', () => {
       emoji.classList.add('visible'); panel.dataset.phase = 'emoji-added'; announcement.textContent = 'Диктуйте, я расставлю запятые. Подмигивающий смайлик.';
     })],
-    [TIMING.hideEmoji, hidePrompt],
-    [TIMING.settle, () => { panel.classList.remove('commands'); bubble.textContent = ''; panel.dataset.phase = 'settling'; }],
-    [TIMING.finish, () => { panel.dataset.phase = 'final'; }]
+    [TIMING.settle, () => { hidePrompt(); panel.classList.remove('commands'); panel.dataset.phase = 'settling'; }],
+    [TIMING.finish, () => { bubble.textContent = ''; panel.dataset.phase = 'final'; }]
   ];
 
   function tick(now) {
