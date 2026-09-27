@@ -28,7 +28,9 @@ img{display:block}
 .heading,.copy{opacity:0;filter:blur(8px);transition:transform 840ms cubic-bezier(.22,1,.36,1),opacity 1000ms ease,filter 1000ms ease}
 .panel.revealed .heading,.panel.revealed .copy{opacity:1;filter:blur(0)}
 .panel.editing .heading{opacity:0;transform:translateY(-16px);transition:transform 720ms cubic-bezier(.22,1,.36,1),opacity 640ms ease,filter 1000ms ease}
-.panel.commands .copy{transform:translateY(-20px)}
+/* All settled states share y=141: intro 94..188, copy+bubble 89..193, final copy 115..167. */
+.panel.editing .copy{transform:translateY(-21px);transition-timing-function:cubic-bezier(.4,0,.2,1),ease,ease}
+.panel.commands .copy{transform:translateY(-47px)}
 .first-line,.second-line{display:flex;align-items:baseline;justify-content:center;height:26px;white-space:nowrap}
 .verb{display:inline-block;transition:color 1000ms cubic-bezier(.4,0,.2,1),font-weight 1000ms cubic-bezier(.4,0,.2,1)}
 .verb.added{color:#ff8c2e;font-weight:700;transition-duration:0ms;animation:word-in 640ms cubic-bezier(.22,1,.36,1)}
@@ -40,7 +42,7 @@ img{display:block}
 .phrase.removed{width:0!important;opacity:0}
 .emoji{display:inline-block;flex:none;overflow:hidden;width:0;opacity:0;transform:scale(.82);transform-origin:center;white-space:pre;transition:width 720ms cubic-bezier(.22,1,.36,1),opacity 520ms ease,transform 720ms cubic-bezier(.22,1,.36,1)}
 .emoji.visible{width:var(--emoji-width,26px);opacity:1;transform:scale(1)}
-.bubble-anchor{position:absolute;top:184px;left:0;width:375px;display:flex;justify-content:center;pointer-events:none}
+.bubble-anchor{position:absolute;top:157px;left:0;width:375px;display:flex;justify-content:center;pointer-events:none}
 .bubble{height:36px;padding:0 16px;display:flex;align-items:center;justify-content:center;border-radius:18px 18px 18px 6px;background:rgba(178,185,195,.3);font-size:14px;line-height:18px;white-space:nowrap;opacity:0;transform:translateY(8px);transition:opacity 440ms ease,transform 720ms cubic-bezier(.22,1,.36,1)}
 .bubble.visible{opacity:1;transform:translateY(0)}
 .android-nav{position:absolute;top:242px;left:0;width:375px;height:44px;display:flex;align-items:center;justify-content:center;gap:63px;color:#7a7a7a}
