@@ -163,7 +163,7 @@ img{display:block}
       });
     }],
     [TIMING.hideReplace, hidePrompt],
-    [TIMING.removePrompt, () => showPrompt('Убери «, расставлю запятые»', 'remove-prompt', () => {
+    [TIMING.removePrompt, () => showPrompt('Убери «расставлю запятые»', 'remove-prompt', () => {
       phrase.classList.add('struck'); panel.dataset.phase = 'struck';
     })],
     [TIMING.removePhrase, () => { measurePhrase(); void phrase.offsetWidth; phrase.classList.add('removed'); panel.dataset.phase = 'removed'; announcement.textContent = 'Диктуйте.'; }],
