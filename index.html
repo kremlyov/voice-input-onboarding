@@ -23,27 +23,27 @@ img{display:block}
 .product-button{border:0;margin:0;padding:0;position:absolute;top:10px;height:48px;border-radius:999px;display:flex;align-items:center;justify-content:center;font:400 14px/18px "YS Text",Arial,sans-serif;cursor:default;opacity:1;-webkit-text-fill-color:currentColor}
 .keyboard{left:10px;width:48px;background:rgba(178,185,195,.2);color:#000}
 .start{right:10px;width:104px;gap:6px;background:#000;color:#fff}
-.heading{position:absolute;top:94px;left:0;width:375px;margin:0;text-align:center;font-size:20px;line-height:26px;font-weight:400;white-space:nowrap}
-.copy{position:absolute;top:136px;left:33px;width:308px;margin:0;text-align:center;font-size:20px;line-height:26px;font-weight:400;font-feature-settings:"lnum" 1,"pnum" 1}
+.heading{position:absolute;top:107px;left:0;width:375px;margin:0;text-align:center;font-size:20px;line-height:26px;font-weight:400;white-space:nowrap}
+.copy{position:absolute;top:149px;left:0;width:375px;margin:0;text-align:center;font-size:20px;line-height:26px;font-weight:400;font-feature-settings:"lnum" 1,"pnum" 1}
 .heading,.copy{opacity:0;filter:blur(8px);transition:transform 840ms cubic-bezier(.22,1,.36,1),opacity 1000ms ease,filter 1000ms ease}
 .panel.revealed .heading,.panel.revealed .copy{opacity:1;filter:blur(0)}
 .panel.editing .heading{opacity:0;transform:translateY(calc(-1 * var(--swap-distance)));transition:transform var(--swap-duration) var(--swap-ease),opacity var(--swap-duration) var(--swap-ease),filter 1000ms ease}
 /* Shared travel and timing remove parallax during the first text/prompt swap. */
-/* All settled states share y=141: intro 94..188, copy+bubble 85..197, final copy 115..167. */
+/* All settled states share y=141: intro 107..175, copy+bubble 98..184, final copy 128..154. */
 .panel.editing .copy{transform:translateY(-21px);transition:transform var(--swap-duration) var(--swap-ease),opacity 1000ms ease,filter 1000ms ease}
 .panel.commands .copy{transform:translateY(calc(-1 * var(--swap-distance)))}
-.first-line,.second-line{display:flex;align-items:baseline;justify-content:center;height:26px;white-space:nowrap}
+.first-line{display:flex;align-items:baseline;justify-content:center;height:26px;white-space:nowrap}
 .verb{display:inline-block;transition:color 1000ms cubic-bezier(.4,0,.2,1),font-weight 1000ms cubic-bezier(.4,0,.2,1)}
 .verb.added{color:#ff8c2e;font-weight:700;transition-duration:0ms;animation:word-in 640ms cubic-bezier(.22,1,.36,1)}
 .phrase{display:inline-block;white-space:pre;overflow:hidden;vertical-align:bottom;flex:none;transition:width 840ms cubic-bezier(.22,1,.36,1),opacity 480ms ease,color 1000ms cubic-bezier(.4,0,.2,1),font-weight 1000ms cubic-bezier(.4,0,.2,1)}
 .phrase-words{position:relative;display:inline-block}
 .phrase.struck{color:#ff5d63;font-weight:700}
-.phrase-words::after{content:"";position:absolute;left:5px;right:0;top:54%;height:1.6px;background:currentColor;transform:scaleX(0);transform-origin:left center;transition:transform 560ms cubic-bezier(.22,1,.36,1)}
+.phrase-words::after{content:"";position:absolute;left:0;right:0;top:54%;height:1.6px;background:currentColor;transform:scaleX(0);transform-origin:left center;transition:transform 560ms cubic-bezier(.22,1,.36,1)}
 .phrase.struck .phrase-words::after{transform:scaleX(1)}
 .phrase.removed{width:0!important;opacity:0}
 .emoji{display:inline-block;flex:none;overflow:hidden;width:0;opacity:0;transform:scale(.82);transform-origin:center;white-space:pre;transition:width 720ms cubic-bezier(.22,1,.36,1),opacity 520ms ease,transform 720ms cubic-bezier(.22,1,.36,1)}
 .emoji.visible{width:var(--emoji-width,26px);opacity:1;transform:scale(1)}
-.bubble-anchor{position:absolute;top:157px;left:0;width:375px;display:flex;justify-content:center;pointer-events:none}
+.bubble-anchor{position:absolute;top:144px;left:0;width:375px;display:flex;justify-content:center;pointer-events:none}
 .bubble{height:40px;padding:0 16px;display:flex;align-items:center;justify-content:center;border-radius:20px 20px 20px 6px;background:rgba(178,185,195,.2);font-size:16px;line-height:20px;white-space:nowrap;opacity:0;transform:translateY(var(--swap-distance));transition:opacity 440ms var(--swap-ease),transform 440ms var(--swap-ease)}
 .bubble.visible{opacity:1;transform:translateY(0);transition-duration:var(--swap-duration)}
 /* Final exit follows the copy down by 30px, with matching duration and easing. */
@@ -79,12 +79,11 @@ img{display:block}
         <button class="product-button start" type="button" disabled aria-label="Начать (элемент макета)"><img src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiB2aWV3Qm94PSIwIDAgMjAgMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJpY29uTWljIj4KPGcgaWQ9IlNoYXBlIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik05Ljk5OTAyIDBDNy4zNjU3IDAgNS4yMzA5OCAyLjEyNjY1IDUuMjMwOTggNC43NVY5LjI1QzUuMjMwOTggMTEuODczNCA3LjM2NTcgMTQgOS45OTkwMiAxNEMxMi42MzIzIDE0IDE0Ljc2NzEgMTEuODczNCAxNC43NjcxIDkuMjVWNC43NUMxNC43NjcxIDIuMTI2NjUgMTIuNjMyMyAwIDkuOTk5MDIgMFpNMTMuMjYxNCA5LjI1VjQuNzVDMTMuMjYxNCAyLjk1NTA3IDExLjgwMDggMS41IDkuOTk5MDIgMS41QzguMTk3MjggMS41IDYuNzM2NjcgMi45NTUwNyA2LjczNjY3IDQuNzVWOS4yNUM2LjczNjY3IDExLjA0NDkgOC4xOTcyOCAxMi41IDkuOTk5MDIgMTIuNUMxMS44MDA4IDEyLjUgMTMuMjYxNCAxMS4wNDQ5IDEzLjI2MTQgOS4yNVoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0xNy4yNDcyIDguNTAwOThDMTcuNjYyOSA4LjUwMDk4IDE4IDguODM2NzYgMTggOS4yNTA5OEMxOCAxMy4zNTM2IDE0LjgwMDYgMTYuNzExOCAxMC43NTE5IDE2Ljk4NDVWMTkuMjVDMTAuNzUxOSAxOS42NjQzIDEwLjQxNDggMjAgOS45OTkwMiAyMEM5LjU4MzIzIDIwIDkuMjQ2MTcgMTkuNjY0MyA5LjI0NjE3IDE5LjI1VjE2Ljk4NDRDNS4xOTgzMyAxNi43MTA4IDIgMTMuMzUzMSAyIDkuMjUxMTNDMiA4LjgzNjkyIDIuMzM3MDYgOC41MDExMyAyLjc1Mjg1IDguNTAxMTNDMy4xNjg2NCA4LjUwMTEzIDMuNTA1NyA4LjgzNjkyIDMuNTA1NyA5LjI1MTEzQzMuNTA1NyAxMi43MDM2IDYuMzE1MTEgMTUuNTAyNCA5Ljc4MDcxIDE1LjUwMjRIMTAuMjE5MUMxMy42ODQ4IDE1LjUwMjQgMTYuNDk0MyAxMi43MDM1IDE2LjQ5NDMgOS4yNTA5OEMxNi40OTQzIDguODM2NzYgMTYuODMxNCA4LjUwMDk4IDE3LjI0NzIgOC41MDA5OFoiIGZpbGw9IndoaXRlIi8+CjwvZz4KPC9nPgo8L3N2Zz4K" width="20" height="20" alt="">Начать</button>
         <h1 class="heading">Я умный голосовой ввод</h1>
         <p class="copy" aria-hidden="true">
-          <span class="first-line"><span class="verb" id="verb">Говорите</span><span class="phrase" id="phrase"><span class="phrase-words" id="phraseWords"> как обычно</span></span><span>,</span></span>
-          <span class="second-line"><span>я расставлю запятые</span><span class="emoji" id="emoji"> 😉</span></span>
+          <span class="first-line"><span class="verb" id="verb">Говорите</span><span class="phrase" id="phrase"><span class="phrase-words" id="phraseWords">, расставлю запятые</span></span><span class="emoji" id="emoji"> 😉</span></span>
         </p>
         <div class="bubble-anchor" aria-hidden="true"><div class="bubble" id="bubble"></div></div>
         <div class="android-nav" aria-hidden="true"><span class="nav-square"></span><span class="nav-circle"></span><span class="nav-back"><img src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjExLjk4NjkiIGhlaWdodD0iMTUuMDA5MiIgdmlld0JveD0iMCAwIDExLjk4NjkgMTUuMDA5MiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggaWQ9IlZlY3RvciAyNCIgZD0iTTExLjk4NjkgMTQuNDA4M1YwLjYwMDk3OEMxMS45ODY5IDAuMTI2ODI2IDExLjQ2MjkgLTAuMTU5OTc4IDExLjA2MzUgMC4wOTU2MTUxTDAuMjc2NTY4IDYuOTk5MjZDLTAuMDkyMTg5MyA3LjIzNTI2IC0wLjA5MjE4OTIgNy43NzM5OCAwLjI3NjU2OCA4LjAwOTk4TDExLjA2MzUgMTQuOTEzNkMxMS40NjI5IDE1LjE2OTIgMTEuOTg2OSAxNC44ODI0IDExLjk4NjkgMTQuNDA4M1oiIGZpbGw9IiM3QTdBN0EiLz4KPC9zdmc+Cg==" width="11.9869" height="15.0092" alt=""></span></div>
-        <p class="sr-only" id="announcement" aria-live="polite" aria-atomic="true">Говорите как обычно, я расставлю запятые.</p>
+        <p class="sr-only" id="announcement" aria-live="polite" aria-atomic="true">Говорите, расставлю запятые.</p>
       </section>
     </div>
   </div>
@@ -159,18 +158,18 @@ img{display:block}
     [TIMING.replacePrompt, () => {
       panel.classList.add('commands', 'editing');
       heading.setAttribute('aria-hidden', 'true');
-      showPrompt('Замени «говорите» на «диктуйте»', 'replace-prompt', () => {
-        verb.textContent = 'Диктуйте'; verb.classList.add('added'); panel.dataset.phase = 'replaced'; announcement.textContent = 'Диктуйте как обычно, я расставлю запятые.';
+      showPrompt('Замени «Говорите» на «Диктуйте»', 'replace-prompt', () => {
+        verb.textContent = 'Диктуйте'; verb.classList.add('added'); panel.dataset.phase = 'replaced'; announcement.textContent = 'Диктуйте, расставлю запятые.';
       });
     }],
     [TIMING.hideReplace, hidePrompt],
-    [TIMING.removePrompt, () => showPrompt('Убери «как обычно»', 'remove-prompt', () => {
+    [TIMING.removePrompt, () => showPrompt('Убери «, расставлю запятые»', 'remove-prompt', () => {
       phrase.classList.add('struck'); panel.dataset.phase = 'struck';
     })],
-    [TIMING.removePhrase, () => { measurePhrase(); void phrase.offsetWidth; phrase.classList.add('removed'); panel.dataset.phase = 'removed'; announcement.textContent = 'Диктуйте, я расставлю запятые.'; }],
+    [TIMING.removePhrase, () => { measurePhrase(); void phrase.offsetWidth; phrase.classList.add('removed'); panel.dataset.phase = 'removed'; announcement.textContent = 'Диктуйте.'; }],
     [TIMING.hideRemove, hidePrompt],
     [TIMING.emojiPrompt, () => showPrompt('Добавь эмодзи', 'emoji-prompt', () => {
-      emoji.classList.add('visible'); panel.dataset.phase = 'emoji-added'; announcement.textContent = 'Диктуйте, я расставлю запятые. Подмигивающий смайлик.';
+      emoji.classList.add('visible'); panel.dataset.phase = 'emoji-added'; announcement.textContent = 'Диктуйте. Подмигивающий смайлик.';
     })],
     [TIMING.settle, () => { hidePrompt(); panel.classList.remove('commands'); panel.dataset.phase = 'settling'; }],
     [TIMING.finish, () => { bubble.textContent = ''; panel.dataset.phase = 'final'; }]
@@ -199,7 +198,7 @@ img{display:block}
     emoji.classList.remove('visible');
     bubble.classList.remove('visible');
     bubble.textContent = '';
-    announcement.textContent = 'Говорите как обычно, я расставлю запятые.';
+    announcement.textContent = 'Говорите, расставлю запятые.';
     void panel.offsetHeight;
     panel.classList.remove('resetting');
     elapsed = 0; eventIndex = 0; startTime = null; playing = true;
